@@ -26,12 +26,23 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
       {
         var searchVal = req.params.searchVal;
         var offset = req.query.offset;
-        var searchTerm
-        return res.json(
-        {
+        var data = new searchTerm({
           searchVal,
-          offset
+          searchDate : new Date()
         });
+  
+         data.save(function(err){ 
+           if(err){
+           return res.send("Error save to database");
+           }
+            res.json(data);
+           });
+
+//         return res.json(
+//         {
+//           searchVal,
+//           offset
+//         });
 
       });
 // http://expressjs.com/en/starter/static-files.html
