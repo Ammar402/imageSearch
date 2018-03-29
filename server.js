@@ -41,15 +41,10 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
        if(err){
          return res.send("Error save to database");
        }
-         res.json(data);
+       
        });
         
-
-        // return res.json(
-        // {
-        //   searchVal,
-        //   offset
-        // });
+ 
 
       });
 // http://expressjs.com/en/starter/static-files.html
