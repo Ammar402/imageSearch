@@ -24,7 +24,11 @@ mongoose.connect("mongodb://ammar:4444@ds033066.mlab.com:33066/searchterm").then
 app.get("/", (request, response) => {
   response.sendFile(__dirname + '/views/index.html')
 })
-
+app.get('/api/imagesearch/:recentsearch',function(req,res,next){
+  searchTerm.find({},function (err,data){
+  res.json(data);
+  });
+});
 app.get('/api/imagesearch/:searchVal*',function (req,res,next)
       {
         var searchVal = req.params.searchVal;
