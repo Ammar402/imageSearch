@@ -4,11 +4,15 @@
 // init project
 const cors = require ('cors')
 const mongoose = require ('mongoose')
-const Bing = require ('node-bing-api')
 const bodyParser = require ('body-parser')
 const express = require('express')
 const app = express()
+const Bing = require ('node-bing-api')({accKey: '9886dad1ee214a819e970fe1a106e5d9'});
 
+
+app.use(bodyParser.json());
+app.use(cors());
+ 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
