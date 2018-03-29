@@ -16,6 +16,7 @@ app.use(cors());
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
+app.get('/api/imagesearch/:searchVal')
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'))
 
