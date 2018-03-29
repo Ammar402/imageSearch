@@ -7,7 +7,7 @@ const mongoose = require ('mongoose')
 const bodyParser = require ('body-parser')
 const express = require('express')
 const app = express()
-const Bing = require ('node-bing-api')({accKey: '9886dad1ee214a819e970fe1a106e5d9'});
+const Bing = require ('node-bing-api')({accKey: '1df857a7dff84f5cb6c3b6ed6b9389b1'});
 
 const searchTerm = require ('./model/searchTerm');
 
