@@ -30,19 +30,14 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
           searchVal,
           searchDate : new Date()
         });
-  
-         data.save(function(err){ 
-           if(err){
-           return res.send("Error save to database");
-           }
-            res.json(data);
-           });
+       data.save ( )
+        
 
-//         return res.json(
-//         {
-//           searchVal,
-//           offset
-//         });
+        return res.json(
+        {
+          searchVal,
+          offset
+        });
 
       });
 // http://expressjs.com/en/starter/static-files.html
