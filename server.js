@@ -44,7 +44,14 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
        
        });
         
- 
+ Bing.images(searchVal,{
+   top:10
+   
+ },function(error,rez,body){
+   res.json(body);
+   console.log(bing)
+ });
+  
 
       });
 // http://expressjs.com/en/starter/static-files.html
