@@ -2,6 +2,10 @@
 // where your node app starts
 
 // init project
+const cors = require ('cors')
+const mongoose = require ('mongoose')
+const Bing = require ('node-bing-api')
+const bodyParser = require ('body-parser')
 const express = require('express')
 const app = express()
 
