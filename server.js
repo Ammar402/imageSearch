@@ -21,6 +21,9 @@ mongoose.connect("mongodb://ammar:4444@ds033066.mlab.com:33066/searchterm").then
 );
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
+app.get("/", (request, response) => {
+  response.sendFile(__dirname + '/views/index.html')
+})
 
 app.get('/api/imagesearch/:searchVal*',function (req,res,next)
       {
@@ -49,9 +52,7 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
 app.use(express.static('public'))
 
 // http://expressjs.com/en/starter/basic-routing.html
-app.get("/", (request, response) => {
-  response.sendFile(__dirname + '/views/index.html')
-})
+
 
 // Simple in-memory store
 const dreams = [
