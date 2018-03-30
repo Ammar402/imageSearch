@@ -7,7 +7,7 @@ const mongoose = require ('mongoose')
 const bodyParser = require ('body-parser')
 const express = require('express')
 const app = express()
-const Bing = require ('node-bing-api')({accKey: '110592ff514844b19941014a9816b072'});
+const google = require ('googleapis')({accKey: 'AIzaSyAXnJ_6gtcIib1URWT0aCQ3JNheLCC4gQ8'});
 
 const searchTerm = require ('./model/searchTerm');
 
@@ -50,7 +50,7 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
        
        });
         
-         Bing.images(searchVal,{
+         google.images(searchVal,{
            top:10
 
          },function(error,rez,body){
