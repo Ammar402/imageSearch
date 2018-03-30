@@ -7,7 +7,7 @@ const mongoose = require ('mongoose')
 const bodyParser = require ('body-parser')
 const express = require('express')
 const app = express()
-const Bing = require ('node-bing-api')({accKey: '110592ff514844b19941014a9816b072'});
+const qwant = require("qwant-api");
 
 const searchTerm = require ('./model/searchTerm');
 
@@ -50,11 +50,10 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
        
        });
         
-      var qwant = require("qwant-api");
+    
  
-qwant.search("web", { query: "test", count: 10, offset: 1, language: "german" }, function(err, data){
-    if (err) return console.log(err);
-    console.log(data);
+qwant.search("images", { query: searchVal, count: 10, offset: 1, language: "german" }, function(err, data){
+   res.json(data);
 });
    
 
