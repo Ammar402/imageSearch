@@ -61,7 +61,7 @@ qwant.search("images", { query: searchVal, count: 10, offset : 2,language: "engl
     url :data.data.result.items[i].url,
     snippet :data.data.result.items[i].title,
     thumbnail :data.data.result.items[i].thumbnail,
-    context:data.data.result.items[i].media_fullsize
+    context:data.data.result.items[i].media
     
       
     })
