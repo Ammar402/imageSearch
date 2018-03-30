@@ -52,7 +52,7 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
         
     
  
-qwant.search("images", { query: searchVal, count: 10, offset: 1, language: "german" }, function(err, data){
+qwant.search("images", { query: searchVal, count: 10, language: "english" }, function(err, data){
    res.json(data);
 });
    
