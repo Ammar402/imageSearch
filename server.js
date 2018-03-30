@@ -26,7 +26,7 @@ app.get("/", (request, response) =>
   response.sendFile(__dirname + '/views/index.html')
   });
 
-app.get('/api/imagesearch/:recentsearch',function(req,res,next)
+app.get('/api/recentsearch',function(req,res,next)
 {
   searchTerm.find({},function (err,data)
   {
@@ -55,7 +55,7 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
 
          },function(error,res,body){
            res.json(body);
-
+  
          });
    
 
