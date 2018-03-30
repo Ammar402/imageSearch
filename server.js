@@ -7,7 +7,7 @@ const mongoose = require ('mongoose')
 const bodyParser = require ('body-parser')
 const express = require('express')
 const app = express()
-const Bing = require ('node-bing-api')({accKey: '1df857a7dff84f5cb6c3b6ed6b9389b1'});
+const Bing = require ('node-bing-api')({accKey: '9886dad1ee214a819e970fe1a106e5d9'});
 
 const searchTerm = require ('./model/searchTerm');
 
@@ -21,14 +21,19 @@ mongoose.connect("mongodb://ammar:4444@ds033066.mlab.com:33066/searchterm").then
 );
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
-app.get("/", (request, response) => {
+app.get("/", (request, response) => 
+  {
   response.sendFile(__dirname + '/views/index.html')
-})
-app.get('/api/imagesearch/:recentsearch',function(req,res,next){
-  searchTerm.find({},function (err,data){
-  res.json(data);
+  });
+
+app.get('/api/imagesearch/:recentsearch',function(req,res,next)
+{
+  searchTerm.find({},function (err,data)
+  {
+    res.json(data);
   });
 });
+
 app.get('/api/imagesearch/:searchVal*',function (req,res,next)
       {
         var searchVal = req.params.searchVal;
@@ -38,19 +43,20 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
           searchDate : new Date()
         });
        data.save(function(err){
-       if(err){
+       if(err)
+       {
          return res.send("Error save to database");
        }
        
        });
         
- Bing.images(searchVal,{
-   top:10
-   
- },function(error,res,body){
-   res.json(body);
-  
- });
+         Bing.images(searchVal,{
+           top:10
+
+         },function(error,res,body){
+           res.json(body);
+
+         });
    
 
       });
