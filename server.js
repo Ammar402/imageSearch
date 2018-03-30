@@ -58,11 +58,15 @@ qwant.search("images", { query: searchVal, count: 10, language: "english" }, fun
   for(var i=0;i<10;i++)
   {
     mydata.push({
-    url :body.value[i].webSearchUrl,
+    url :data.result.items[i].url,
+    snippet :data.result.items[i].title,
+    thumbnail :data.result.items[i].thumbnail,
+    context:data.result.items[i].media
+    
       
     })
   }
-   res.json(data);
+   res.json(mydata);
 });
    
 
