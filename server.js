@@ -52,21 +52,21 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
         
     
  
-qwant.search("images", { query: searchVal, count: 10, language: "english" }, function(err, data){
+qwant.search("images", { query: searchVal, count: 10, offset : 2,language: "english" }, function(err, data){
     var mydata=[];
   
-  for(var i=0;i<10;i++)
-  {
-    mydata.push({
-    url :data.result.items[i].url,
-    snippet :data.result.items[i].title,
-    thumbnail :data.result.items[i].thumbnail,
-    context:data.result.items[i].media
+//   for(var i=0;i<10;i++)
+//   {
+//     mydata.push({
+//     url :data.data.result.items[i].url,
+//     snippet :data.data.result.items[i].title,
+//     thumbnail :data.data.result.items[i].thumbnail,
+//     context:data.data.result.items[i].media
     
       
-    })
-  }
-   res.json(mydata);
+//     })
+//   }
+   res.json(data);
 });
    
 
