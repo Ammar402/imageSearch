@@ -53,6 +53,15 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
     
  
 qwant.search("images", { query: searchVal, count: 10, language: "english" }, function(err, data){
+    var mydata=[];
+  
+  for(var i=0;i<10;i++)
+  {
+    mydata.push({
+    url :body.value[i].webSearchUrl,
+      
+    })
+  }
    res.json(data);
 });
    
