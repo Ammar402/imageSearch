@@ -9,6 +9,7 @@ const express = require('express')
 const app = express()
 const qwant = require("qwant-api");
 
+
 const searchTerm = require ('./model/searchTerm');
 
 app.use(bodyParser.json());
@@ -52,8 +53,9 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
         
     
  
-qwant.search("images", { query: searchVal, count: 10, offset : 2,language: "english" }, function(err, data){
+qwant.search("images", { query: searchVal, count: 10, offset : offset,language: "english" }, function(err, data){
     var mydata=[];
+    var offset = req.query.offset;
   
   for(var i=0;i<10;i++)
   {
