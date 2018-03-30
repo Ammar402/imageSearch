@@ -53,9 +53,9 @@ app.get('/api/imagesearch/:searchVal*',function (req,res,next)
          Bing.images(searchVal,{
            top:10
 
-         },function(error,res,body){
+         },function(error,rez,body){
            res.json(body);
-  
+   
          });
    
 
